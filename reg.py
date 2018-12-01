@@ -16,6 +16,10 @@ def Wprice(data):
     bod = int(data) * 2
     return str(bod)
 
+def Aprice(data):
+    bod = int(price(data[0])) + int(Wprice(data[1]))
+    return str(bod)
+
 coding = "latin2"
 with open(sys.argv[1], mode="r", encoding=coding) as i:
     csv = i.read()
@@ -41,7 +45,7 @@ with open(sys.argv[1], mode="r", encoding=coding) as i:
             data = []
             for i in range(1,6):
                 data.append(mem.group(i))
-            out.append(cat + fs + sex + fs + price(data[0]) + fs + Wprice(data[1]) + fs + data[2] + fs + data[3] + fs + data[4])
+            out.append(cat + fs + sex + fs + price(data[0]) + fs + Wprice(data[1]) + fs + data[2] + fs + data[3] + fs + data[4] + fs + sys.argv[3] + fs + Aprice(data[0:2]))
             #print(out)
 with open(sys.argv[2], mode="w", encoding=coding) as o:
     for line in out:
