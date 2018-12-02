@@ -42,11 +42,11 @@ def Aprice(data):
     bod = int(price(data[0])) + int(Wprice(data[1]))
     return str(bod)
 
-coding = "utf-8"
-with open(sys.argv[1], mode="r", encoding=coding) as i:
-    csv = i.read()
-    out = uprav(csv, sys.argv[3])
-with open(sys.argv[2], mode="w", encoding=coding) as o:
-    for line in out:
-        o.write(line + '\n')
-
+if __name__ == "__main__":
+    coding = "utf-8"
+    with open(sys.argv[1], mode="r", encoding=coding) as i:
+        csv = i.read()
+        out = uprav(csv, sys.argv[3])
+    with open(sys.argv[2], mode="w", encoding=coding) as o:
+        for line in out:
+            o.write(line + '\n')
